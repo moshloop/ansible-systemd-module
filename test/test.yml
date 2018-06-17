@@ -1,0 +1,12 @@
+  - hosts: all
+    # gather_facts: False
+    tasks:
+
+      - systemd_service:
+          Name: test
+          ExecStart: "/usr/bin/nc -l 2000"
+
+      - systemd:
+          name: test
+          enabled: yes
+          state: started
