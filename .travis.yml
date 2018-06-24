@@ -1,0 +1,12 @@
+language: python
+
+python:
+  - "2.7"
+
+script:  python setup.py sdist
+deploy:
+  provider: pypi
+  user: moshe.immerman
+  password: $PIP_PASSWORD
+  on:
+    tags: true
