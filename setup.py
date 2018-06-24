@@ -16,7 +16,7 @@ if not os.path.isdir(GLOBAL):
         os.makedirs(GLOBAL)
         DEST = GLOBAL
     except:
-        print("Failed to create %s installing to %s" % (GLOBAL, USER), file=sys.stderr)
+        sys.stderr.write("Failed to create %s installing to %s\n" % (GLOBAL, USER))
         DEST = USER
 else:
     DEST = GLOBAL
