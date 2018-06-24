@@ -22,7 +22,7 @@ else:
     DEST = GLOBAL
 
 setup(
-    name = 'ansible-systemd-module', version = '1.1',
+    name = 'ansible-systemd-module', version = '1.2',
     url = 'https://www/github.com/moshloop/ansible-systemd-module',
     author = 'Moshe Immerman', author_email = 'firstname.surname@gmail.com',
     data_files=[
