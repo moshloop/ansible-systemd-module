@@ -1,9 +1,9 @@
-Ansible Role for created systemd services, for managing existing services use the built-in [systemd](https://docs.ansible.com/ansible/latest/modules/systemd_module.html) module.
+Ansible Role for creating systemd services, for managing existing services use the built-in [systemd](https://docs.ansible.com/ansible/latest/modules/systemd_module.html) module.
 
 ### Install
 
 ```bash
-ansible-galaxy https://github.com/moshloop/ansible-systemd-module
+ansible-galaxy ansible-galaxy install moshloop.systemd
 ```
 
 ### Options
@@ -25,7 +25,7 @@ OPTIONS (= is mandatory):
 ```yaml
   - hosts: all
     roles:
-      - ansible-systemd-module
+      - moshloop.systemd
     tasks:
         - systemd_service:
             Name: test
