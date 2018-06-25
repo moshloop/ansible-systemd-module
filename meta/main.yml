@@ -4,3 +4,12 @@ galaxy_info:
   description: Module for creating systemd services
   license: Apache
   min_ansible_version: 2.0
+  platforms:
+    - name: CentOS
+      versions:
+      - all
+    - name: RHEL
+      versions:
+      - all
+  galaxy_tags:
+    - systemd
