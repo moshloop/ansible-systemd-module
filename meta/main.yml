@@ -1,4 +1,3 @@
----
 galaxy_info:
   author: Moshe Immerman
   description: Module for creating systemd services
