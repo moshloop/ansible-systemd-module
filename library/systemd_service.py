@@ -83,6 +83,11 @@ logger.setLevel(logging.DEBUG)
 ROOT = "/etc/systemd/system/"
 
 
+def systemctl(arg1, arg2=None):
+    if arg2 is None:
+        check_call(["/bin/systemctl", arg1])
+    else:
+        check_call(["/bin/systemctl", arg1, arg2])
 def present(unit_path, name, content):
     changed = False
 
@@ -102,17 +107,17 @@ def present(unit_path, name, content):
     is_running = False
 
     try:
-        check_call(["/usr/bin/systemctl", "is-active", name])
+        systemctl("is-active", name)
         is_running = True
     except:
         pass
 
     if changed:
-        check_call(["/usr/bin/systemctl", "daemon-reload"])
+        systemctl("daemon-reload")
 
     if is_running and changed:
         logger.info("Restarting because changed and is running")
-        check_call(["/usr/bin/systemctl", "restart", name])
+        systemctl("restart", name)
 
     return changed
 
@@ -121,7 +126,7 @@ def absent(unit_path, name):
     changed = False
 
     try:
-        check_call(["/usr/bin/systemctl", "stop", name])
+        systemctl("stop", name)
         changed = True
         logger.info("Stopped")
     except:
@@ -129,7 +134,7 @@ def absent(unit_path, name):
 
     if os.path.exists(unit_path):
         check_call(["/bin/rm", "-f", unit_path])
-        check_call(["/usr/bin/systemctl", "daemon-reload"])
+        systemctl("daemon-reload")
         changed = True
         logger.info("Removed")
 

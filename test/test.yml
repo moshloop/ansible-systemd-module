@@ -6,7 +6,7 @@
 
       - systemd_service:
           Name: test
-          ExecStart: "/usr/bin/nc -l 2000"
+          ExecStart: "/usr/bin/python -m SimpleHTTPServer"
 
       - systemd:
           name: test
