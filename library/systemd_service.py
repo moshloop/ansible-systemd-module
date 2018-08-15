@@ -146,7 +146,7 @@ def main():
         Name=dict(required=True),
         Description=dict(default=None),
         ExecStart=dict(required=True),
-        RestartOn=dict(default='on-failure'),
+        Restart=dict(default='on-failure'),
         WantedBy=dict(default='multi-user.target'),
         RunAs=dict(default=None),
         UnitArgs=dict(default=dict(), type='dict'),
@@ -169,7 +169,7 @@ def main():
     service = module.params['ServiceArgs']
     service['ExecStart'] = module.params['ExecStart']
     service['RunAs'] = module.params['RunAs']
-    service['RestartOn'] = module.params['RestartOn']
+    service['Restart'] = module.params['Restart']
     install = module.params['InstallArgs']
     install['WantedBy'] = module.params['WantedBy']
 
